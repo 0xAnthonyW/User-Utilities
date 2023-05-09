@@ -158,5 +158,42 @@ namespace User_Utilities
             process.Start();
             process.WaitForExit();
         }
+
+        private void SmrtCrdBtn_Click(object sender, EventArgs e)
+        {
+            string card = @"D:\sp98312 - Smart Card Reader.exe";
+            Process.Start(card);
+
+            var command = "rundll32.exe";
+            var arguments = "shell32.dll,Control_RunDLL inetcpl.cpl,1,3";
+
+            ProcessStartInfo startInfo = new()
+            {
+                FileName = command,
+                Arguments = arguments,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+            };
+
+            using Process process = Process.Start(startInfo);
+            process.WaitForExit();
+
+            string output = process.StandardOutput.ReadToEnd();
+            string error = process.StandardError.ReadToEnd();
+
+            if (!string.IsNullOrEmpty(output))
+            {
+                Console.WriteLine("Output:");
+                Console.WriteLine(output);
+            }
+
+            if (!string.IsNullOrEmpty(error))
+            {
+                Console.WriteLine("Error:");
+                Console.WriteLine(error);
+            }
+        }
     }
 }

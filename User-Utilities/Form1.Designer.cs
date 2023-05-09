@@ -33,6 +33,7 @@
             PWexpireBtn = new Button();
             RTclockBtn = new Button();
             NetwrkBtn = new Button();
+            SmrtCrdBtn = new Button();
             SuspendLayout();
             // 
             // output
@@ -84,10 +85,21 @@
             NetwrkBtn.UseVisualStyleBackColor = true;
             NetwrkBtn.Click += NetwrkBtn_Click;
             // 
+            // SmrtCrdBtn
+            // 
+            SmrtCrdBtn.Location = new Point(12, 129);
+            SmrtCrdBtn.Name = "SmrtCrdBtn";
+            SmrtCrdBtn.Size = new Size(104, 25);
+            SmrtCrdBtn.TabIndex = 5;
+            SmrtCrdBtn.Text = "CAC Card Driver";
+            SmrtCrdBtn.UseVisualStyleBackColor = true;
+            SmrtCrdBtn.Click += SmrtCrdBtn_Click;
+            // 
             // UserUtilities
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             ClientSize = new Size(487, 269);
+            Controls.Add(SmrtCrdBtn);
             Controls.Add(NetwrkBtn);
             Controls.Add(RTclockBtn);
             Controls.Add(PWexpireBtn);
@@ -107,5 +119,6 @@
         private Button PWexpireBtn;
         private Button RTclockBtn;
         private Button NetwrkBtn;
+        private Button SmrtCrdBtn;
     }
 }
